@@ -1,7 +1,7 @@
-# Digital Fortress Lab
+# Digital infrastructure Lab
 ![](/assets/photos/test2.jpeg)
 
-**Digital Fortress Lab** is a self-hosted security and infrastructure lab built on enterprise hardware and operated like a small production network. It is designed, built, and documented end to end by a single operator as a long-term R&D and learning platform.
+**Digital infrastructure Lab** is a self-hosted security and infrastructure lab built on enterprise hardware and operated like a small production network. It is designed, built, and documented end to end by a single operator as a long-term R&D and learning platform.
 
 > ### For recruiters / hiring managers
 > This project demonstrates my ability to:
@@ -276,7 +276,7 @@ Additional detail is documented in:
 The repository mirrors the structure of the lab and its documentation.
 
 ```text
-digital-fortress-lab/
+digital--lab/
 ├── README.md
 ├── docs/
 │   ├── 00_overview.md
