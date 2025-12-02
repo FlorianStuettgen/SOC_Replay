@@ -12,7 +12,8 @@
   <img src="https://img.shields.io/badge/Nerd_Factor-11/10-ff0066?style=for-the-badge&logo=dependabot" alt="Nerd"/>
 </p>
 
-> [!IMPORTANT] → **Professional-grade security & infrastructure lab** — built on real enterprise hardware, operated like production, documented like a religion.
+> [!IMPORTANT]
+> → **Professional-grade security & infrastructure lab** — built on real enterprise hardware, operated like production, documented like a religion.
 
 > [!NOTE]  
 > Proxmox • Cisco ASA • SonicWall • Suricata • SELKS • VLAN Zones • Honeypots • Runbooks • Zero config drift
