@@ -22,7 +22,7 @@ I made this to showcase how enterprise-grade equipment, complex topologies, and 
 > Operated in complete isolation from production environments to enable risk-free experimentation with realistic scenarios.
 
 > [!WARNING]
-> All data in this repo has been sanitized. Sensitive information, credentials, or real network details are excluded for OPSEC.
+> Data sanitized. Sensitive information, credentials, or real network details are excluded from this repo for OPSEC.
 
 
 ## At a Glance — Current as of December 2025
