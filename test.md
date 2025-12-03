@@ -1,7 +1,4 @@
 # EvoSec-Lab
-<div align="center" style="margin-bottom: 24px; font-style: bold; color: #555; font-size: 0.9em;">
-  EvoSec-Lab
-</div>
 
 <div align="center">
   <img src="/assets/photos/test2.jpeg" alt="Enterprise Rack Configuration" width="65%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
