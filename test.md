@@ -105,29 +105,38 @@ This repository details the architecture, implementation, and management of a de
 </div>
 
 
-<summary><strong>Architecture Diagram</strong></summary>
-
-flowchart LR
+flowchart TB
     %% Core Infrastructure
-    subgraph core["Core Infrastructure"]
-        A["Hypervisor: Proxmox VE\nDell R710"] --> B["Storage: Dual EqualLogic\nFS7610 + Avid Chassis"]
+    subgraph Core["Core Infrastructure"]
+        A["Hypervisor:\nProxmox VE\nDell R710"]
+        B["Storage:\nDual EqualLogic FS7610\nAvid Chassis"]
+        A --> B
     end
+
     %% Networking & Security
-    subgraph networking["Networking & Security"]
-        C["Core Switch: Dell X1052P\n52-port VLAN"] --> D["Perimeter: Cisco ASA + SonicWall SRA"]
-        D --> E["SOC Node: Panasonic Toughbook\nNST/SELKS + Suricata"]
-        C --> F["Network Model: Multi-zone\nASA L3 Routing - Zero Trust"]
+    subgraph Network["Networking & Security"]
+        C["Core Switch:\nDell X1052P 52-port VLAN"]
+        D["Perimeter:\nCisco ASA + SonicWall SRA"]
+        E["SOC Node:\nPanasonic Toughbook\nNST/SELKS + Suricata"]
+        F["Network Model:\nMulti-zone\nASA L3 Routing - Zero Trust"]
+        C --> D
+        D --> E
+        C --> F
     end
+
     %% Management
-    subgraph mgmt["Management"]
-        G["OOB Management: OpenGear CM4148 + Rack KVM + HP TFT5600"] --> A
+    subgraph Management["Management"]
+        G["OOB Management:\nOpenGear CM4148 + Rack KVM + HP TFT5600"]
+        G --> A
     end
+
     %% Connections
     A --> C
+
     %% Styles
-    style core fill:#f0f8ff,stroke:#007bff,stroke-width:2px
-    style networking fill:#f0f8ff,stroke:#007bff,stroke-width:2px
-    style mgmt fill:#f0f8ff,stroke:#007bff,stroke-width:2px
+    style Core fill:#f0f8ff,stroke:#007bff,stroke-width:2px
+    style Network fill:#f0f8ff,stroke:#007bff,stroke-width:2px
+    style Management fill:#f0f8ff,stroke:#007bff,stroke-width:2px
 
 
 
