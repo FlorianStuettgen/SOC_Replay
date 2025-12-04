@@ -1,4 +1,6 @@
-# EvoSec-Lab 
+<div align="center"> 
+  # EvoSec-Lab 
+</div>
 
 <div align="center">
   <img src="/assets/photos/test2.jpeg" alt="Enterprise Rack Configuration" width="85%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
