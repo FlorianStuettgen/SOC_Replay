@@ -117,7 +117,7 @@ By bringing together data from multiple sources, EvoSec turns raw information in
 
 ![test2](https://github.com/user-attachments/assets/7388aa89-6603-4772-b960-438a4a78339b)
 
-EvoSec combines enterprise-grade infrastructure, AI-driven automation, and security. Ideal for professional research and educational use.
+EvoSec combines enterprise-grade infrastructure, AI-driven automation, and security making it ideal for professional research and education.
 
 </div>
 
