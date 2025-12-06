@@ -96,9 +96,12 @@ Core capabilities include dynamic network configuration, adaptive honeypot-based
 QubesOS is utilized for secure, compartmentalized experimentation and SaltStack for advanced configuration management and automated provisioning.
 Supporting automated deployment, updates, scaling, adaptive experiments, and predictive maintenance, the system enhances control and efficiency while AI automation ensures secure, responsive, and adaptable lab infrastructure.
 
+<img width="725" height="543" alt="NSTscreen013" src="https://github.com/user-attachments/assets/004b0f48-6c84-426e-a043-5aa7d94da18f" />
+
+
 The system delivers granular observability across infrastructure, apps, and network by collecting metrics such as CPU, memory, storage I/O, and network traffic deep packet inspection for detailed analysis and interpretation. 
 
-<img width="725" height="543" alt="NSTscreen013" src="https://github.com/user-attachments/assets/004b0f48-6c84-426e-a043-5aa7d94da18f" />
+![1](https://github.com/FlorianStuettgen/EvoSec/blob/main/assets/photos/diagram.svg](https://github.com/FlorianStuettgen/EvoSec/blob/main/assets/photos/diagram.svg))
 
 The ELK stack provides central logging for real-time event tracking and anomaly detection, while Grafana dashboards visualize system and security status.
 SOC integration enables continuous monitoring, advanced threat detection, and prompt response to abnormal activities. 
