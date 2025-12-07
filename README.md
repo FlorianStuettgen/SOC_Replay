@@ -127,13 +127,10 @@ EvoSec combines enterprise-grade infrastructure, AI-driven automation, and secur
 
 ![test2](https://github.com/user-attachments/assets/7388aa89-6603-4772-b960-438a4a78339b)
 
-As of December 2025, this build is fully  operational!
+As of December 2025, this build is fully operational!
 
-
-
-
-
-
+Stay tuned and visit the wiki for a detailed overview of EvoSec’s architecture, components, and experiments:
+[EvoSec-Lab Wiki](https://github.com/FlorianStuettgen/EvoSec/wiki).
 
 </div>
 
