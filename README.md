@@ -129,8 +129,7 @@ EvoSec combines enterprise-grade infrastructure, AI-driven automation, and secur
 
 As of December 2025, this build is fully operational!
 
-Stay tuned and visit the wiki for a detailed overview of EvoSec’s architecture, components, and experiments:
+Stay tuned and visit the wiki for a detailed overview of EvoSec’s architecture, components, and ongoing experiments:
 [EvoSec-Lab Wiki](https://github.com/FlorianStuettgen/EvoSec/wiki).
-
 </div>
 
