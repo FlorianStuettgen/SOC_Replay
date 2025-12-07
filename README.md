@@ -6,7 +6,7 @@
 
 </div>
 
-SOC_Replay is a cybersecurity research lab built for experimentation and operational analysis. This exciting new platform brings together honeypots, intrusion detection, automation, and monitoring into a unified environment, enabling practical testing and innovation. 
+SOC_Replay is a cybersecurity research lab built for experimentation and operational analysis. This exciting new platform brings together honeypots, intrusion detection, automation, and monitoring into a unified environment. 
 
 Visit the wiki for a detailed breakdown of SOC_Replay’s architecture, components, and experiments:
 [SOC_Replay-Lab Wiki](https://github.com/FlorianStuettgen/SOC_Replay/wiki).
