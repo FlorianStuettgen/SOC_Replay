@@ -11,4 +11,3 @@
 
 ## Diagrams & References
 
-_(Include architecture diagrams, network topology drawings, sample configs as needed. Place images in `docs/assets/` and reference them.)_
