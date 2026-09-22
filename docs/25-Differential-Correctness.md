@@ -50,4 +50,4 @@ A failed proof means indexed and full-scan execution disagreed for the tested in
 
 ## Limits
 
-The proof establishes equivalence between two implementations for the supplied scenarios and expanded benchmark workloads. It does not prove that the detection rule is operationally useful, that the source telemetry is authentic, or that every possible event value has been explored.
+The proof establishes equivalence between two execution paths for the supplied scenarios and expanded benchmark workloads. Both paths share the compiler, predicates, and correlation engine; a defect common to those components can therefore pass this comparison. Exact scenario expectations and separate behavior tests are also needed. The comparison does not prove that the detection rule is operationally useful, that the source telemetry is authentic, or that every possible event value has been explored.

@@ -28,7 +28,7 @@ The index is appropriate for bounded experiments and portfolio-scale replay. It 
 
 ### Differential rather than formal proof
 
-The index-equivalence layer compares two implementations on maintained scenarios and deterministic expanded workloads. It does not exhaust the entire input domain or prove that a rule is operationally useful.
+The index-equivalence layer compares indexed and full-scan execution paths on maintained scenarios and deterministic expanded workloads. Both paths share the compiler, predicates, and correlation engine, so a defect common to that evaluator can pass this comparison. Exact scenario expectations and separate behavior tests supply additional checks. The comparison does not exhaust the entire input domain or prove that a rule is operationally useful.
 
 ### Environment-bound benchmarks
 

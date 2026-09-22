@@ -34,12 +34,14 @@ Place authorized test devices in restricted zones with explicit monitoring and n
 
 ## Evidence replay use cases
 
-The included replay scenarios demonstrate:
+The four maintained replay scenarios demonstrate:
 
-- a synthetic multi-port scan correlation; and
-- a synthetic privileged-group change match.
+- a synthetic multi-port scan correlation;
+- a synthetic privileged-group change match;
+- repeated failed-authentication windows with two expected detections; and
+- approved privileged maintenance with an exact zero-detection result.
 
-Future scenarios can cover telemetry gaps, authentication anomalies, administrative changes, service-account use, failed validation and configuration drift—using synthetic or sanitized data and simulated responses.
+Future scenarios can cover telemetry gaps, service-account use, failed validation and configuration drift—using synthetic or sanitized data and simulated responses. See the [scenario catalog](../README.md#maintained-scenarios) for the current exact results.
 
 ## Experiment definition of done
 

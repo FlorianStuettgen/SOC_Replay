@@ -1,1 +1,2 @@
-* text=auto
+# Source hashes and reference manifests commit to exact bytes across platforms.
+* text=auto eol=lf

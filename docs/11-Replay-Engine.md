@@ -1,6 +1,6 @@
 # 11 — Replay Engine
 
-SOC_Replay 3.1 is a deterministic, contract-complete execution pipeline rather than a collection of matching helpers.
+SOC_Replay is a deterministic execution pipeline with explicit input, rule, result, and evidence contracts.
 
 ## Public result
 
@@ -33,7 +33,8 @@ A scenario supplies immutable `scenario.json` and `events.jsonl` inputs. The eng
 | `pipeline.py` | Stage orchestration and ledger construction |
 | `result.py` | Immutable result and public report representation |
 | `report_render.py` | JSON and analyst-readable rendering |
-| `bundle.py` | Manifest construction and internal-consistency verification |
+| `bundle.py` | Deterministic bundle and manifest construction |
+| `bundle_verify*.py` | Internal-consistency checks and source-bound reproduction |
 | `report.py` | Stable reporting façade |
 
 ## Execution order

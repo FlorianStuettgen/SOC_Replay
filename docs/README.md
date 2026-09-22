@@ -6,7 +6,8 @@ The version-controlled documentation is the canonical technical record. Start wi
 
 | Goal | Recommended path |
 | --- | --- |
-| Evaluate the project in five minutes | [Start Here](00-Start-Here.md) → [Reference Report](../reference/network-scan/report.md) → [Implementation State](14-Implementation-State.md) → [Engineering Review](16-Engineering-Review.md) |
+| Understand the value without installation | [Two-minute review](00-Start-Here.md#two-minute-review-without-installation) → [Reference Report](../reference/network-scan/report.md) → [Implementation State](14-Implementation-State.md) |
+| Review the engineering judgment | [Engineering Review](16-Engineering-Review.md) → [Architecture Decisions](17-Architecture-Decisions.md) → [Threat Model](21-Threat-Model.md) |
 | Run the maintained demonstration | [Demo Playbook](15-Demo-Playbook.md) → [Scenario Format](12-Scenario-Format.md) → [Experiment Lifecycle](13-Experiment-Lifecycle.md) |
 | Understand evidence integrity | [Evidence Bundles](18-Evidence-Bundles.md) → [Execution Ledger](23-Execution-Ledger.md) → [Contract Validation](24-Contract-Validation.md) |
 | Review correctness and performance | [Differential Correctness](25-Differential-Correctness.md) → [Performance Methodology](26-Performance-Methodology.md) → [Reproducible Builds](27-Reproducible-Builds.md) |
@@ -15,7 +16,7 @@ The version-controlled documentation is the canonical technical record. Start wi
 
 ## Numbering note
 
-The numeric filenames preserve the original platform documentation series. Retired or consolidated chapters were intentionally not renumbered; gaps do not indicate missing current documentation. Follow the goal-based paths above.
+The numeric filenames preserve the original platform documentation series. The goal-based paths above select the most relevant chapters for each review; a chapter omitted from the map is still available in this directory.
 
 ## System and platform
 
