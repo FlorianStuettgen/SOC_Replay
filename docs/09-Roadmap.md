@@ -10,7 +10,12 @@ The roadmap protects the project’s original platform identity while improving 
 - Full hardware, software and topology documentation rebuilt
 - Implementation-state register added
 - Deterministic replay utility retained with tests and CI
-- Two synthetic reference scenarios retained
+- Four maintained synthetic scenarios with exact expected outcomes
+- Strict runtime contracts and Draft 2020-12 instance validation
+- Offline Suricata EVE normalization with a frozen adapter registry
+- Deterministic evidence bundles and source-bound reference reproduction
+- Indexed/full-scan comparison and a deterministic benchmark harness
+- Reproducible wheel verification under a fixed toolchain
 
 ## Near-term platform work
 
@@ -34,12 +39,12 @@ The roadmap protects the project’s original platform identity while improving 
 
 ## Evidence tooling track
 
-- Golden-file tests for replay reports
-- Optional schema validation
-- Read-only import adapters for sanitized exports
-- Signed report manifests
-- Replay scale and timing benchmarks
-- Scenario coverage summaries
+- A second offline vendor adapter with conformance fixtures
+- An optional signed external envelope around deterministic evidence bundles
+- Published benchmark history on controlled hosts across workload sizes and shapes
+- Additional exact scenarios derived from measured, sanitized lab experiments
+
+The [Implementation State](14-Implementation-State.md) is the controlling maturity register; the [Engineering Review](16-Engineering-Review.md#highest-value-next-proofs) prioritizes the next proofs.
 
 ## Longer-term ideas
 

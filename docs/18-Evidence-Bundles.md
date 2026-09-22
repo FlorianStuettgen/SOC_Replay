@@ -90,6 +90,8 @@ A separate test performs a coherent report-only rewrite that remains internally 
 
 `tools/verify_deterministic_bundles.py` executes every maintained scenario twice in isolated directories, requires source-bound verification for both bundles, and compares all three artifact byte streams exactly.
 
+Source identity includes the exact input bytes, including line endings. The repository's `.gitattributes` fixes text checkouts to LF so Windows and Linux receive the same scenario and reference bytes. Generated artifacts are written without platform newline translation. Reformatting a scenario or reference artifact changes its identity even when the parsed JSON values remain the same.
+
 ## Security meaning
 
 The ledger and manifest provide tamper evidence relative to their hashes. Source-bound verification proves agreement with the supplied scenario under the installed engine. Neither mode is a signature, trusted timestamp, external custody record, hardware identity proof, or proof of live telemetry provenance.

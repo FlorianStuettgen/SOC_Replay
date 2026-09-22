@@ -2,36 +2,39 @@
 
 # SOC_Replay
 
-### Deterministic defensive telemetry replay with verifiable evidence bundles
+### Reproducible security analysis with traceable evidence
 
 [![CI](https://github.com/FlorianStuettgen/SOC_Replay/actions/workflows/ci.yml/badge.svg)](https://github.com/FlorianStuettgen/SOC_Replay/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11–3.13-3776AB?logo=python&logoColor=white)
 ![Runtime](https://img.shields.io/badge/runtime-zero%20dependencies-0f766e)
-![Coverage](https://img.shields.io/badge/branch%20coverage-90%25%2B-16a34a)
+[![Coverage gate](https://img.shields.io/badge/coverage%20gate-90%25-16a34a)](pyproject.toml)
 ![Boundary](https://img.shields.io/badge/response-simulation%20only-b45309)
 ![License](https://img.shields.io/badge/license-MIT-0f172a)
 
 </div>
 
-SOC_Replay compiles inspectable detection rules, evaluates stored synthetic or sanitized telemetry, verifies exact expected outcomes, and produces deterministic JSON/Markdown evidence bundles.
+SOC_Replay is an offline Python engine for testing detection rules against stored security events. It connects each result to the input events, rule logic, and verification checks that produced it, then packages that evidence so another reviewer can reproduce it.
 
-The repository also documents the segmented physical lab that provides the project context. The shipped Python package remains deliberately offline: it does not collect live telemetry, generate traffic, execute commands, or control infrastructure.
+The engineering problem is broader than security: a result becomes more useful when its inputs, assumptions, and transformations can be inspected. This project demonstrates that discipline through deterministic replay, exact expected outcomes, and explicit limits on what the evidence establishes.
 
-**Start here:** [See the reference evidence](reference/network-scan/report.md) · [Run the demo](#quickstart) · [Read the project guide](docs/00-Start-Here.md) · [Review implementation state](docs/14-Implementation-State.md) · [Read the security boundary](SECURITY.md)
+**Start here:** [Inspect a result without installing](reference/network-scan/report.md) · [Run the demo](#quickstart) · [Review the engineering decisions](docs/16-Engineering-Review.md) · [Check implementation state](docs/14-Implementation-State.md)
+
+## Why this matters
+
+| Review question | Evidence in this project | Relevance to data and controls work |
+| --- | --- | --- |
+| Where did the result come from? | Input hashes, rule fingerprints, and event-level detection evidence | Trace a reported exception back to its source and transformation logic |
+| Can another person reproduce it? | Committed reference bundle and source-bound byte comparison | Make a review repeatable with the same data and rules |
+| Did an optimization change the answer? | Indexed execution compared with a full-scan path | Check that performance changes preserve results for tested inputs |
+| Does the control correctly remain quiet? | An exact zero-detection scenario with a preserved rule trace | Distinguish a valid negative result from a control that never ran |
+
+The implemented domain is security telemetry. Applying these patterns to cost, schedule, or commercial data would require new domain contracts, scenarios, and validation; this repository does not claim those integrations or business outcomes.
+
+**A concrete example:** the [reference report](reference/network-scan/report.md) processes seven synthetic events and produces one high-severity detection supported by five named events. Its proposed response is recorded as a simulation. The report includes the expected result, actual result, and checks a reviewer can rerun.
 
 ![SOC_Replay execution core](docs/assets/execution-core.svg)
 
-```text
-Segmented physical lab
-  └─ produces and contextualizes stored, sanitized telemetry
-       └─ SOC_Replay evidence engine
-            ├─ validates exact scenario contracts
-            ├─ replays detections deterministically
-            ├─ compares indexed and full-scan execution
-            └─ publishes verifiable evidence bundles
-```
-
-The physical platform is the research context. The Python package is the offline evidence engine; it has no live collection or infrastructure-control authority.
+The repository also documents a segmented physical lab. That lab is research context; the runnable demonstration uses synthetic fixtures. The Python package does not collect live telemetry, generate traffic, execute commands, or control infrastructure.
 
 ## What is in this repository
 
@@ -58,14 +61,31 @@ All response objects are validation-locked to `simulated`.
 
 ## Quickstart
 
+Use **Python 3.11–3.13**. No lab hardware, cloud account, credentials, or runtime dependencies are required. Run the commands from the repository root; installation needs access to the Python build tools.
+
+macOS / Linux:
+
 ```bash
 git clone https://github.com/FlorianStuettgen/SOC_Replay.git
 cd SOC_Replay
 
 python -m venv .venv
-. .venv/bin/activate              # Windows: .venv\Scripts\activate
+. .venv/bin/activate
 python -m pip install -e .
+```
 
+Windows PowerShell (no activation required):
+
+```powershell
+git clone https://github.com/FlorianStuettgen/SOC_Replay.git
+cd SOC_Replay
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e .
+```
+
+Run the replay and verification below. In PowerShell, replace `soc-replay` with `.\.venv\Scripts\soc-replay.exe` and `python` with `.\.venv\Scripts\python.exe`.
+
+```bash
 soc-replay doctor
 soc-replay run scenarios/network-scan --output build/network-scan
 soc-replay verify-bundle build/network-scan --source scenarios/network-scan
@@ -112,7 +132,7 @@ SOC_Replay separates different kinds of evidence instead of treating every hash 
 | Exact scenario verification | Produced detections match declared counts, rules, severity, evidence events, groups, and simulated actions | Production usefulness or false-positive rate |
 | Standalone bundle verification | Internal agreement among report, plan, traces, detections, actions, ledger, manifest, hashes, and byte counts | That the bundle came from a particular source directory |
 | Source-bound reproduction | The supplied scenario regenerates all three bundle artifacts exactly under the installed engine | Authorship, trusted time, or independent custody |
-| Differential index proof | Indexed execution matches the full-scan reference implementation for tested inputs | A formal proof over every possible input |
+| Differential index proof | Indexed execution matches the full-scan path for tested inputs | Independent validation of their shared evaluator or a proof over every possible input |
 | Reproducible wheel check | Two clean source copies produce byte-identical wheels under the defined toolchain | Trustworthiness of the build host |
 
 See [Evidence Bundles](docs/18-Evidence-Bundles.md), [Differential Correctness](docs/25-Differential-Correctness.md), and [Reproducible Builds](docs/27-Reproducible-Builds.md).
@@ -182,7 +202,7 @@ python tools/verify_repository.py
 python tools/verify_reproducible_wheel.py
 ```
 
-CI runs the gate on Python 3.11, 3.12, and 3.13 and preserves diagnostics and generated evidence as workflow artifacts.
+CI runs lint, types, tests, scenario, schema, and evidence checks on Linux with Python 3.11, 3.12, and 3.13. The reproducible-wheel comparison and benchmark smoke test run on Python 3.13. A separate Windows/Python 3.12 job checks the committed reference and quickstart bundle. Diagnostics and generated evidence from the Linux matrix are preserved as workflow artifacts. The configured 90% coverage gate includes branch measurement; see the [current CI results](https://github.com/FlorianStuettgen/SOC_Replay/actions/workflows/ci.yml) for measured results.
 
 ## Documentation paths
 

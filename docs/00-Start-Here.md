@@ -1,20 +1,34 @@
 # Start here
 
-SOC_Replay has two connected surfaces:
+SOC_Replay demonstrates how an analytical result can carry enough evidence for another person to inspect and reproduce it. The working example is security telemetry: stored events are evaluated against explicit rules, then checked against declared expected outcomes.
+
+## Two-minute review, without installation
+
+1. Open the checked-in [reference report](../reference/network-scan/report.md). Seven synthetic events produce one high-severity detection backed by five named events and one simulated recommendation.
+2. Read the decision summary and verification checks together. A PASS means the output matches the declared scenario; it does not establish real-world detection accuracy.
+3. Follow the event IDs into the [source events](../scenarios/network-scan/events.jsonl) and inspect the [rule and expectations](../scenarios/network-scan/scenario.json).
+4. Review the [implementation state](14-Implementation-State.md) for the boundary between implemented software, documented lab design, and future work.
+
+For data and controls work, the transferable ideas are traceable inputs, explicit rules, repeatable checks, and preserved negative results. The current implementation is a security replay engine; cost, schedule, and commercial reporting would need their own domain models and validation.
+
+## Technical review
+
+SOC_Replay has two related surfaces:
 
 ```text
-Segmented physical lab
-  └─ produces and contextualizes stored, sanitized telemetry
-       └─ SOC_Replay evidence engine
-            ├─ validates exact scenario contracts
-            ├─ replays detections deterministically
-            ├─ compares indexed and full-scan execution
-            └─ publishes verifiable evidence bundles
+Stored synthetic or sanitized telemetry
+  └─ SOC_Replay evidence engine
+       ├─ validates exact scenario contracts
+       ├─ replays detections deterministically
+       ├─ compares indexed and full-scan execution
+       └─ publishes verifiable evidence bundles
+
+Segmented physical lab → documented research context
 ```
 
-The physical platform is the research context. The Python package is an offline, simulation-only evidence engine and has no live infrastructure authority.
+The Python package is an offline, simulation-only evidence engine and has no live infrastructure authority. The maintained demonstration uses synthetic fixtures; a complete measured physical-lab experiment is still pending.
 
-## Five-minute path
+## Continue into the implementation
 
 1. Open the checked-in [reference report](../reference/network-scan/report.md).
 2. Review the [implementation state](14-Implementation-State.md).
@@ -34,4 +48,4 @@ None of these alone establishes authorship, trusted time, independent custody, o
 
 ## Documentation numbering
 
-The numeric filenames preserve the original platform documentation series. Retired or consolidated chapters were intentionally not renumbered, so gaps such as `05` and `08–10` do not indicate missing current documentation. Use the goal-based map in [docs/README.md](README.md) rather than reading by number.
+The numeric filenames preserve the original platform documentation series. The goal-based map in [docs/README.md](README.md) selects the most relevant chapters for each review path; a chapter omitted from that map is still available in this directory.
